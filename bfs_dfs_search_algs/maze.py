@@ -1,5 +1,3 @@
-import sys
-
 class Node():
     def __init__(self, state, parent, action):
         self.state = state
@@ -215,15 +213,10 @@ class Maze():
         img.save(filename)
 
 
-if len(sys.argv) != 2:
-    sys.exit("Usage: python maze.py maze.txt")
+if __name__ == "__main__":
 
-m = Maze(sys.argv[1])
-print("Maze:")
-m.print()
-print("Solving...")
-m.solve()
-print("States Explored:", m.num_explored)
-print("Solution:")
-m.print()
-m.output_image("maze.png", show_explored=True)
+    m = Maze("maze2.txt")
+    m.print()
+    m.solve()
+    m.print()
+    m.output_img("maze.png", show_explored=True)
